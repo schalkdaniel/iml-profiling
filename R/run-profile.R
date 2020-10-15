@@ -12,7 +12,7 @@ cl = parallel::makeCluster(cores)
 doParallel::registerDoParallel(cl)
 
 
-foreach::foreach(k = seq_len(nrow(experimants)), .packages = c("mlr", "iml", "foreach"), .export("experiments")) %dopar% {
+foreach::foreach(k = seq_len(nrow(experiments)), .packages = c("mlr", "iml", "foreach")) %dopar% {
 
   ## Setup:
   n     = experiments$n[k]
