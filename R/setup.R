@@ -1,5 +1,5 @@
-ns         = c(100, 1000, 5000, 10000, 50000, 100000, 500000, 1000000)
-ps         = c(10, 20, 50, 100, 200, 500)
+ns         = c(100, 1000, 5000, 10000, 50000)
+ps         = c(10, 20, 30, 40, 50)
 batch_size = 10^seq_len(5L)
 learners   = c("regr.lm", "regr.randomForest", "regr.xgboost")
 rep        = seq_len(10L)
