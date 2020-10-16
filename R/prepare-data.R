@@ -12,11 +12,15 @@ appendChanges = function (data, call_names = NULL, add_relative = FALSE, data_di
     load(file)
     mem_change = p_data[rownames(p_data) %in% call_names, "mem.diff"]
     time_change = p_data[rownames(p_data) %in% call_names, "time.diff"]
+
+    mem_total = rep(max(p_data$mem.total), times = length(call_names))
+    time_total = rep(max(p_data$total.time), times = length(call_names))
+
     if (add_relative) {
       mem_change_rel = p_data[rownames(p_data) %in% call_names, "mem.diff"]/max(p_data$mem.total)
       time_change_rel = p_data[rownames(p_data) %in% call_names, "time.diff"]/max(p_data$total.time)
     }
-    out = data.frame(hash = h, call = call_names, mem_change = mem_change, time_change = time_change)
+    out = data.frame(hash = h, call = call_names, mem_change = mem_change, time_change = time_change, mem_total = mem_total, time_total = time_total)
 
     if (add_relative) {
       out$mem_change_rel = mem_change_rel
