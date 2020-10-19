@@ -32,5 +32,4 @@ appendChanges = function (data, call_names = NULL, add_relative = FALSE, data_di
   return (merge(data, df_changes, by = "hash"))
 }
 
-bm = experiments_done %>% appendChanges(call_names = c("\"private$run.ale\"", "\"calculate.ale.num\""), add_relative = TRUE)
 

@@ -8,6 +8,9 @@ library(tidyr)
 #   - experiments_done: The data.frame with just the finished setups
 source("prepare-data.R")
 
+# Add time and memory for specific calls:
+bm = experiments_done %>% appendChanges(call_names = c("\"private$run.ale\"", "\"calculate.ale.num\""), add_relative = TRUE)
+
 
 ## Visualize memory consumption:
 ## -----------------------------------------
