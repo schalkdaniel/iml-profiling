@@ -28,9 +28,10 @@ bm %>%
       strip.background = element_rect(fill = rgb(47,79,79,maxColorValue = 255), color = "white"),
       strip.text = element_text(color = "white", face = "bold")
     ) +    labs(color = "Number of\nColumns") +
-    xlab("Number of Rows") +
+    xlab("Number of Rows\n(log10 Scale)") +
     ylab("Memory Change\n(log10 Scale)") +
     scale_y_continuous(trans = "log10") +
+    scale_x_continuous(trans = "log10") +
     facet_grid(paste0("batch: ", batch) ~ learner)
 
 
@@ -50,9 +51,10 @@ bm %>%
       strip.background = element_rect(fill = rgb(47,79,79,maxColorValue = 255), color = "white"),
       strip.text = element_text(color = "white", face = "bold")
     ) +    labs(color = "Number of\nColumns") +
-    xlab("Number of Rows") +
-    ylab("Total Amount of Used Memory\n(log10 Scale)") +
+    xlab("Number of Rows\n(log10 Scale)") +
+    ylab("Memory Change\n(log10 Scale)") +
     scale_y_continuous(trans = "log10") +
+    scale_x_continuous(trans = "log10") +
     facet_grid(paste0("batch: ", batch) ~ learner)
 
 
