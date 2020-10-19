@@ -49,7 +49,6 @@ foreach::foreach(k = seq_len(nrow(experiments)), .packages = c("mlr", "iml", "fo
 
     tmp_prof_filename = paste0("tmp-prof", k, ".out")
     Rprof(tmp_prof_filename, memory.profiling = TRUE)
-    #FeatureEffects$new(model)
     FeatureImp$new(model,loss="mse")
     Rprof(NULL)
 
@@ -68,7 +67,7 @@ foreach::foreach(k = seq_len(nrow(experiments)), .packages = c("mlr", "iml", "fo
     status = ">> DONE :-)"
     hash = experiments$hash[k]
     p_data$hash = hash
-    save(p_data, file = paste0("profile-data/", hash, ".Rda"))
+    save(p_data, file = paste0("profile-data-fi/", hash, ".Rda"))
   }
   msg_trace = paste0(as.character(Sys.time()), " ", k, "/", nrow(experiments), ": n=", n, " p=", p, " learner=", l, " batch_size=", batch, " rep=", i, "\t", status)
 
