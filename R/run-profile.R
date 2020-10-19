@@ -49,8 +49,8 @@ foreach::foreach(k = seq_len(nrow(experiments)), .packages = c("mlr", "iml", "fo
 
     tmp_prof_filename = paste0("tmp-prof", k, ".out")
     Rprof(tmp_prof_filename, memory.profiling = TRUE)
-    FeatureEffects$new(model)
-    #iml::FeatureImp$new(model,loss="mse")
+    #FeatureEffects$new(model)
+    FeatureImp$new(model,loss="mse")
     Rprof(NULL)
 
     a = summaryRprof(tmp_prof_filename, memory = "both")$by.total
