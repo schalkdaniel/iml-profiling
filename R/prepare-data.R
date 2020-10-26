@@ -1,10 +1,10 @@
 library(dplyr)
 load("experiments.Rda")
 
-file_names = unlist(strsplit(list.files("profile-data"), split = ".Rda"))
+file_names = unlist(strsplit(list.files("profile-data-fe"), split = ".Rda"))
 experiments_done = experiments[experiments$hash %in% file_names,]
 
-appendChanges = function (data, call_names = NULL, add_relative = FALSE, data_dir = "profile-data")
+appendChanges = function (data, call_names = NULL, add_relative = FALSE, data_dir = "profile-data-fe")
 {
   if (is.null(call_names[1])) stop("Please specify names of the calls")
   ll = lapply(data$hash, FUN = function (h) {

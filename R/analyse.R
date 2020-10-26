@@ -5,7 +5,7 @@ library(tidyr)
 # This script gives:
 #   - bm:               Benchmark data with all changes etc.
 #   - experiments:      The full data.frame with all setups
-#   - experiments_done: The data.frame with just the finished setups
+#   - experiments_done: The data.frame with just the finished experiments
 source("prepare-data.R")
 
 # Add time and memory for specific calls:
@@ -67,7 +67,7 @@ bm %>%
 setup_number = 10L
 experiments_done[setup_number,]
 
-load(paste0("profile-data/", experiments_done$hash[setup_number], ".Rda"))
+load(paste0("profile-data-fe/", experiments_done$hash[setup_number], ".Rda"))
 
 p_data %>%
   mutate(call = rownames(.)) %>%
